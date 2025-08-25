@@ -78,7 +78,11 @@ Para instalá-las:
 É uma boa prática isolar as dependências de cada projeto de Python usando ambientes virtuais. Isso evita conflitos entre diferentes versões de bibliotecas e mantém seu sistema limpo. O VS Code tem excelente suporte para ambientes virtuais.
 
 1.  **Abra o Terminal Integrado no VS Code**: Vá em `Terminal > New Terminal` ou use `Ctrl+J`.
-2.  **Crie um Ambiente Virtual**: No terminal, crie uma pasta com o comando `mkdir ~/projetos`, abra a pasta como o comando `cd ~/projetos` e em seguida, execute o comando:
+2.  **Crie um Ambiente Virtual**: No terminal, crie uma pasta com o comando `mkdir ~/projetos`, abra a pasta como o comando `cd ~/projetos` e em seguida, execute os comandos:
+
+     ```bash
+    sudo apt install python3.11-venv
+    ```
 
     ```bash
     python3 -m venv .venv
@@ -86,7 +90,7 @@ Para instalá-las:
 
     Este comando cria uma pasta `.venv` (o nome é uma convenção, mas você pode escolher outro) dentro do seu diretório de projeto, contendo uma instalação isolada do Python.
 
-3.  **Ative o Ambiente Virtual**: Para começar a usar o ambiente virtual, você precisa ativá-lo. No Linux, o comando é:
+4.  **Ative o Ambiente Virtual**: Para começar a usar o ambiente virtual, você precisa ativá-lo. No Linux, o comando é:
 
     ```bash
     source .venv/bin/activate
