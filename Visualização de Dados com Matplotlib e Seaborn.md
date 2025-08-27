@@ -29,6 +29,12 @@ Ao combinar Matplotlib e Seaborn, você pode criar uma ampla gama de visualizaç
 
 ### Exemplos Práticos de Visualização de Dados
 
+
+Para instalar as ferramentas execute o comando:
+```bash
+pip install matplotlib seaborn
+```
+
 Vamos ver alguns exemplos de como criar gráficos usando Matplotlib e Seaborn.
 
 #### Exemplo 1: Gráfico de Linha (Matplotlib)
@@ -43,10 +49,10 @@ y = np.sin(x)
 
 # Criando o gráfico de linha
 plt.figure(figsize=(8, 4))
-plt.plot(x, y, label=\'Função Seno\', color=\'blue\')
-plt.title(\'Gráfico de Seno\')
-plt.xlabel(\'Eixo X\')
-plt.ylabel(\'Eixo Y\')
+plt.plot(x, y, label='Função Seno', color='blue')
+plt.title('Gráfico de Seno')
+plt.xlabel('Eixo X')
+plt.ylabel('Eixo Y')
 plt.grid(True)
 plt.legend()
 plt.show()
@@ -58,15 +64,15 @@ plt.show()
 import matplotlib.pyplot as plt
 
 # Dados de exemplo
-categorias = [\'A\', \'B\', \'C\', \'D\']
+categorias = ['A', 'B', 'C', 'D']
 valores = [23, 45, 56, 12]
 
 # Criando o gráfico de barras
 plt.figure(figsize=(7, 5))
-plt.bar(categorias, valores, color=\'skyblue\')
-plt.title(\'Vendas por Categoria\')
-plt.xlabel(\'Categoria\')
-plt.ylabel(\'Vendas\')
+plt.bar(categorias, valores, color='skyblue')
+plt.title('Vendas por Categoria')
+plt.xlabel('Categoria')
+plt.ylabel('Vendas')
 plt.show()
 ```
 
@@ -81,10 +87,10 @@ dados = np.random.randn(1000)
 
 # Criando o histograma
 plt.figure(figsize=(7, 5))
-plt.hist(dados, bins=30, color=\'lightgreen\', edgecolor=\'black\')
-plt.title(\'Distribuição de Dados Aleatórios\')
-plt.xlabel(\'Valor\')
-plt.ylabel(\'Frequência\')
+plt.hist(dados, bins=30, color='lightgreen', edgecolor='black')
+plt.title('Distribuição de Dados Aleatórios')
+plt.xlabel('Valor')
+plt.ylabel('Frequência')
 plt.show()
 ```
 
@@ -97,17 +103,17 @@ import pandas as pd
 
 # Dados de exemplo
 df_scatter = pd.DataFrame({
-    \'Tamanho_Casa\': [100, 120, 150, 130, 180, 200, 90, 110, 140, 160],
-    \'Preco\': [250000, 280000, 350000, 300000, 400000, 450000, 220000, 260000, 330000, 380000]
+    'Tamanho_Casa': [100, 120, 150, 130, 180, 200, 90, 110, 140, 160],
+    'Preco': [250000, 280000, 350000, 300000, 400000, 450000, 220000, 260000, 330000, 380000]
 })
 
 # Criando o gráfico de dispersão com Seaborn
 plt.figure(figsize=(8, 6))
-sns.scatterplot(x=\'Tamanho_Casa\', y=\'Preco\', data=df_scatter, hue=\'Tamanho_Casa\', size=\'Preco\', sizes=(50, 200), palette=\'viridis\')
-plt.title(\'Preço da Casa vs. Tamanho da Casa\')
-plt.xlabel(\'Tamanho da Casa (m²)\' )
-plt.ylabel(\'Preço (R$)\' )
-plt.grid(True, linestyle=\'--\', alpha=0.7)
+sns.scatterplot(x='Tamanho_Casa', y='Preco', data=df_scatter, hue='Tamanho_Casa', size='Preco', sizes=(50, 200), palette='viridis')
+plt.title('Preço da Casa vs. Tamanho da Casa')
+plt.xlabel('Tamanho da Casa (m²)' )
+plt.ylabel('Preço (R$)' )
+plt.grid(True, linestyle='--', alpha=0.7)
 plt.show()
 ```
 
@@ -120,16 +126,16 @@ import pandas as pd
 
 # Dados de exemplo
 df_boxplot = pd.DataFrame({
-    \'Grupo\': [\'A\', \'A\', \'A\', \'B\', \'B\', \'B\', \'C\', \'C\', \'C\'],
-    \'Valores\': [10, 12, 11, 15, 18, 16, 20, 22, 21]
+    'Grupo': ['A', 'A', 'A', 'B', 'B', 'B', 'C', 'C', 'C'],
+    'Valores': [10, 12, 11, 15, 18, 16, 20, 22, 21]
 })
 
 # Criando o box plot com Seaborn
 plt.figure(figsize=(7, 5))
-sns.boxplot(x=\'Grupo\', y=\'Valores\', data=df_boxplot, palette=\'pastel\')
-plt.title(\'Distribuição de Valores por Grupo\')
-plt.xlabel(\'Grupo\')
-plt.ylabel(\'Valores\')
+sns.boxplot(x='Grupo', y='Valores', data=df_boxplot, palette='pastel')
+plt.title('Distribuição de Valores por Grupo')
+plt.xlabel('Grupo')
+plt.ylabel('Valores')
 plt.show()
 ```
 
@@ -144,7 +150,7 @@ Para praticar a visualização de dados, tente criar os seguintes gráficos usan
 Considere os seguintes dados de temperatura média diária em uma semana:
 
 ```python
-dias = [\"Seg\", \"Ter\", \"Qua\", \"Qui\", \"Sex\", \"Sáb\", \"Dom\"]
+dias = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"]
 temperaturas = [22, 24, 23, 25, 27, 26, 24]
 ```
 
@@ -159,9 +165,9 @@ Considere o seguinte DataFrame de dados de estudantes:
 import pandas as pd
 
 dados_estudantes = pd.DataFrame({
-    \"Materia\": [\"Matemática\", \"Matemática\", \"Ciências\", \"Ciências\", \"Matemática\", \"Ciências\"],
-    \"Nota\": [75, 88, 92, 70, 80, 85],
-    \"Genero\": [\"F\", \"M\", \"F\", \"M\", \"F\", \"M\"]
+    "Materia": ["Matemática", "Matemática", "Ciências", "Ciências", "Matemática", "Ciências"],
+    "Nota": [75, 88, 92, 70, 80, 85],
+    "Genero": ["F", "M", "F", "M", "F", "M"]
 })
 ```
 
