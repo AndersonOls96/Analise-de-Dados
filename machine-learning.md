@@ -28,7 +28,7 @@ O **Scikit-learn** é a biblioteca mais popular para Machine Learning clássico 
 ### Instalação
 
 ```bash
-pip install scikit-learn pandas matplotlib numpy streamlit
+pip install scikit-learn
 ```
 
 ## Conceitos Fundamentais Explicados
