@@ -6,10 +6,9 @@
 
 ### Analogia Simples
 Imagine que você quer ensinar uma criança a reconhecer se um animal é um gato ou cachorro. Em vez de explicar todas as regras ("gatos têm orelhas pontudas, cachorros latem..."), você mostra centenas de fotos de gatos e cachorros com suas respectivas etiquetas. Após ver muitos exemplos, a criança aprende sozinha a distinguir os padrões. **Isso é Machine Learning!**
-
 ### Por que usar Python para Machine Learning?
 
-Python se tornou a linguagem de escolha para Machine Learning por várias razões:
+Python se tornou a linguagem de escolha para Machine Learning por várias razões :
 
 - **Sintaxe simples e intuitiva** - fácil de aprender e usar
 - **Bibliotecas poderosas** - Scikit-learn, Pandas, NumPy, Matplotlib
@@ -33,7 +32,7 @@ pip install scikit-learn
 
 ## Conceitos Fundamentais Explicados
 
-### Entendendo X e Y: As Peças do Quebra-Cabeça
+### Entendendo X e y: As Peças do Quebra-Cabeça
 
 Em Machine Learning, trabalhamos sempre com dois elementos principais:
 
@@ -82,19 +81,19 @@ Imagine que você está estudando para uma prova. Você não pode usar as mesmas
 ### O Processo Completo de Machine Learning
 
 ```
-📊 DADOS BRUTOS
+DADOS BRUTOS
     ↓
-🔍 ANÁLISE EXPLORATÓRIA (entender os dados)
+ANÁLISE EXPLORATÓRIA (entender os dados)
     ↓
-✂️ DIVISÃO TREINO/TESTE (80%/20%)
+DIVISÃO TREINO/TESTE (80%/20%)
     ↓
-🤖 TREINAMENTO (modelo aprende padrões)
+TREINAMENTO (modelo aprende padrões)
     ↓
-🎯 PREVISÃO (modelo faz estimativas)
+PREVISÃO (modelo faz estimativas)
     ↓
-📈 AVALIAÇÃO (quão bom é o modelo?)
+AVALIAÇÃO (quão bom é o modelo?)
     ↓
-🚀 USO PRÁTICO (fazer previsões reais)
+USO PRÁTICO (fazer previsões reais)
 ```
 
 ### Tipos de Aprendizado
@@ -142,11 +141,11 @@ print("=== PRIMEIROS 5 CARROS ===")
 print(df.head())
 
 print(f"\n=== RESUMO DO DATASET ===")
-print(f"📊 Total de carros: {len(df)}")
-print(f"🚗 Quilometragem média: {df['quilometragem'].mean():.0f} km")
-print(f"💰 Preço médio: R$ {df['preco'].mean():.2f}")
-print(f"📈 Preço mínimo: R$ {df['preco'].min():.2f}")
-print(f"📈 Preço máximo: R$ {df['preco'].max():.2f}")
+print(f"Total de carros: {len(df)}")
+print(f"Quilometragem média: {df['quilometragem'].mean():.0f} km")
+print(f"Preço médio: R$ {df['preco'].mean():.2f}")
+print(f"Preço mínimo: R$ {df['preco'].min():.2f}")
+print(f"Preço máximo: R$ {df['preco'].max():.2f}")
 ```
 
 **O que esperamos ver:**
@@ -165,7 +164,7 @@ plt.subplot(1, 2, 1)
 plt.scatter(df['quilometragem'], df['preco'], alpha=0.6, color='blue', s=30)
 plt.xlabel('Quilometragem (km)')
 plt.ylabel('Preço (R$)')
-plt.title('🔍 Relação: Quilometragem vs Preço')
+plt.title('Relação: Quilometragem vs Preço')
 plt.grid(True, alpha=0.3)
 
 # Subplot 2: Histograma dos preços
@@ -173,7 +172,7 @@ plt.subplot(1, 2, 2)
 plt.hist(df['preco'], bins=20, alpha=0.7, color='green', edgecolor='black')
 plt.xlabel('Preço (R$)')
 plt.ylabel('Quantidade de Carros')
-plt.title('📊 Distribuição dos Preços')
+plt.title('Distribuição dos Preços')
 plt.grid(True, alpha=0.3)
 
 plt.tight_layout()
@@ -181,14 +180,14 @@ plt.show()
 
 # Calcular correlação
 correlacao = df['quilometragem'].corr(df['preco'])
-print(f"\n📈 Correlação quilometragem vs preço: {correlacao:.3f}")
-print("📝 Interpretação:")
+print(f"\nCorrelação quilometragem vs preço: {correlacao:.3f}")
+print("Interpretação:")
 if correlacao < -0.7:
-    print("   ✅ Correlação FORTE e NEGATIVA - quanto mais km, menor o preço!")
+    print("   Correlação FORTE e NEGATIVA - quanto mais km, menor o preço!")
 elif correlacao < -0.3:
-    print("   ⚠️ Correlação MODERADA e NEGATIVA")
+    print("   Correlação MODERADA e NEGATIVA")
 else:
-    print("   ❌ Correlação FRACA - modelo pode não funcionar bem")
+    print("   Correlação FRACA - modelo pode não funcionar bem")
 ```
 
 **O que esperamos ver:**
@@ -199,24 +198,24 @@ else:
 ### Passo 3: Preparando X e y (MUITO IMPORTANTE!)
 
 ```python
-# 🎯 DEFININDO X (FEATURES) E y (TARGET)
+# DEFININDO X (FEATURES) E y (TARGET)
 
 print("=== PREPARANDO OS DADOS ===")
 
 # X = FEATURES (O QUE SABEMOS)
-X = df[['quilometragem']]  # ⚠️ ATENÇÃO: colchetes duplos criam DataFrame
-print(f"✅ X (features) criado com formato: {X.shape}")
-print(f"   - {X.shape[0]} carros")
+X = df[['quilometragem']]  # ATENÇÃO: colchetes duplos criam DataFrame
+print(f"X (features) criado com formato: {X.shape}")
+print(f"   - {X.shape} carros")
 print(f"   - {X.shape[1]} característica (quilometragem)")
 print(f"   - Tipo: {type(X)}")
 
 # y = TARGET (O QUE QUEREMOS PREVER)
-y = df['preco']  # ⚠️ ATENÇÃO: colchetes simples criam Series
-print(f"✅ y (target) criado com formato: {y.shape}")
+y = df['preco']  # ATENÇÃO: colchetes simples criam Series
+print(f"y (target) criado com formato: {y.shape}")
 print(f"   - {len(y)} preços para prever")
 print(f"   - Tipo: {type(y)}")
 
-print("\n🔍 VISUALIZANDO OS DADOS:")
+print("\nVISUALIZANDO OS DADOS:")
 print("Primeiros 3 valores de X:")
 print(X.head(3))
 print("\nPrimeiros 3 valores de y:")
@@ -237,7 +236,7 @@ print(y.head(3))
 ### Passo 4: Divisão Treino/Teste Explicada
 
 ```python
-# 🔄 DIVIDINDO OS DADOS EM TREINO E TESTE
+# DIVIDINDO OS DADOS EM TREINO E TESTE
 
 print("=== DIVISÃO TREINO/TESTE ===")
 
@@ -247,17 +246,17 @@ X_train, X_test, y_train, y_test = train_test_split(
     random_state=42         # Garantir resultados reproduzíveis
 )
 
-print(f"📚 DADOS DE TREINO:")
-print(f"   - X_train: {X_train.shape[0]} carros com quilometragem")
+print(f"DADOS DE TREINO:")
+print(f"   - X_train: {X_train.shape} carros com quilometragem")
 print(f"   - y_train: {len(y_train)} preços correspondentes")
 print(f"   - Função: Ensinar o modelo os padrões")
 
-print(f"\n🎯 DADOS DE TESTE:")
-print(f"   - X_test: {X_test.shape[0]} carros com quilometragem")
+print(f"\nDADOS DE TESTE:")
+print(f"   - X_test: {X_test.shape} carros com quilometragem")
 print(f"   - y_test: {len(y_test)} preços correspondentes")
 print(f"   - Função: Avaliar se modelo aprendeu corretamente")
 
-print(f"\n📊 PROPORÇÃO:")
+print(f"\nPROPORÇÃO:")
 print(f"   - Treino: {len(X_train)/len(X)*100:.1f}%")
 print(f"   - Teste: {len(X_test)/len(X)*100:.1f}%")
 ```
@@ -270,32 +269,32 @@ print(f"   - Teste: {len(X_test)/len(X)*100:.1f}%")
 ### Passo 5: Treinamento do Modelo Explicado
 
 ```python
-# 🤖 CRIANDO E TREINANDO O MODELO
+# CRIANDO E TREINANDO O MODELO
 
 print("=== TREINAMENTO DO MODELO ===")
 
 # Criar o modelo
 modelo = LinearRegression()
-print("✅ Modelo de Regressão Linear criado")
+print("Modelo de Regressão Linear criado")
 print("   - Tipo: Supervisionado")
 print("   - Algoritmo: Regressão Linear")
 print("   - Objetivo: Encontrar melhor linha reta pelos dados")
 
 # Treinar o modelo
-print("\n🎓 Iniciando treinamento...")
+print("\nIniciando treinamento...")
 modelo.fit(X_train, y_train)
-print("✅ Treinamento concluído!")
+print("Treinamento concluído!")
 
 # Analisar o que o modelo aprendeu
-print(f"\n🧠 O QUE O MODELO APRENDEU:")
-print(f"   - Coeficiente: {modelo.coef_[0]:.2f}")
+print(f"\nO QUE O MODELO APRENDEU:")
+print(f"   - Coeficiente: {modelo.coef_:.2f}")
 print(f"   - Intercepto: {modelo.intercept_:.2f}")
 
-print(f"\n📐 FÓRMULA MATEMÁTICA:")
-print(f"   Preço = {modelo.intercept_:.2f} + ({modelo.coef_[0]:.4f} × Quilometragem)")
+print(f"\nFÓRMULA MATEMÁTICA:")
+print(f"   Preço = {modelo.intercept_:.2f} + ({modelo.coef_:.4f} × Quilometragem)")
 
-print(f"\n🔍 INTERPRETAÇÃO:")
-print(f"   - Para cada 1 km adicional, o preço diminui R$ {abs(modelo.coef_[0]):.2f}")
+print(f"\nINTERPRETAÇÃO:")
+print(f"   - Para cada 1 km adicional, o preço diminui R$ {abs(modelo.coef_):.2f}")
 print(f"   - Um carro 0 km custaria R$ {modelo.intercept_:.2f} (intercepto)")
 ```
 
@@ -307,16 +306,16 @@ print(f"   - Um carro 0 km custaria R$ {modelo.intercept_:.2f} (intercepto)")
 ### Passo 6: Fazendo Previsões e Avaliando
 
 ```python
-# 🎯 FAZENDO PREVISÕES
+# FAZENDO PREVISÕES
 
 print("=== FAZENDO PREVISÕES ===")
 
 # Prever preços para dados de teste
 y_pred = modelo.predict(X_test)
-print(f"✅ Previsões feitas para {len(y_pred)} carros de teste")
+print(f"Previsões feitas para {len(y_pred)} carros de teste")
 
 # Comparar algumas previsões com valores reais
-print(f"\n🔍 COMPARANDO PREVISÕES vs REALIDADE:")
+print(f"\nCOMPARANDO PREVISÕES vs REALIDADE:")
 print("Quilometragem | Preço Real | Preço Previsto | Diferença")
 print("-" * 55)
 
@@ -331,28 +330,28 @@ for i in range(min(5, len(X_test))):
 mae = mean_absolute_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 
-print(f"\n📊 PERFORMANCE DO MODELO:")
+print(f"\nPERFORMANCE DO MODELO:")
 print(f"   - MAE (Erro Médio Absoluto): R$ {mae:.2f}")
-print(f"     💡 Em média, erramos R$ {mae:.2f} para mais ou menos")
+print(f"     Em média, erramos R$ {mae:.2f} para mais ou menos")
 print(f"   - R² Score: {r2:.3f}")
-print(f"     💡 Modelo explica {r2*100:.1f}% da variação dos preços")
+print(f"     Modelo explica {r2*100:.1f}% da variação dos preços")
 
-print(f"\n🎯 INTERPRETAÇÃO:")
+print(f"\nINTERPRETAÇÃO:")
 if r2 > 0.8:
-    print("   ✅ EXCELENTE: Modelo muito preciso!")
+    print("   EXCELENTE: Modelo muito preciso!")
 elif r2 > 0.6:
-    print("   ✅ BOM: Modelo funcional para uso prático")
+    print("   BOM: Modelo funcional para uso prático")
 elif r2 > 0.4:
-    print("   ⚠️ REGULAR: Modelo básico, pode melhorar")
+    print("   REGULAR: Modelo básico, pode melhorar")
 else:
-    print("   ❌ RUIM: Modelo não é confiável")
+    print("   RUIM: Modelo não é confiável")
 
 # Exemplo prático de uso
-print(f"\n💡 EXEMPLO PRÁTICO:")
+print(f"\nEXEMPLO PRÁTICO:")
 exemplos_km = [50000, 100000, 150000, 200000]
 for km in exemplos_km:
-    preco_prev = modelo.predict([[km]])[0]
-    print(f"   🚗 Carro com {km:,} km → Preço estimado: R$ {preco_prev:,.2f}")
+    preco_prev = modelo.predict([[km]])
+    print(f"   Carro com {km:,} km → Preço estimado: R$ {preco_prev:,.2f}")
 ```
 
 **RESULTADOS ESPERADOS:**
@@ -363,7 +362,7 @@ for km in exemplos_km:
 ### Passo 7: Visualizando o Modelo em Ação
 
 ```python
-# 📈 VISUALIZANDO O MODELO
+# VISUALIZANDO O MODELO
 
 fig, axes = plt.subplots(2, 2, figsize=(15, 12))
 
@@ -374,7 +373,7 @@ y_linha = modelo.predict(x_linha.reshape(-1, 1))
 axes[0,0].plot(x_linha, y_linha, color='red', linewidth=2, label='Modelo ML')
 axes[0,0].set_xlabel('Quilometragem (km)')
 axes[0,0].set_ylabel('Preço (R$)')
-axes[0,0].set_title('🎓 Modelo Treinado')
+axes[0,0].set_title('Modelo Treinado')
 axes[0,0].legend()
 axes[0,0].grid(True, alpha=0.3)
 
@@ -385,7 +384,7 @@ min_val, max_val = min(y_test.min(), y_pred.min()), max(y_test.max(), y_pred.max
 axes[0,1].plot([min_val, max_val], [min_val, max_val], 'r--', linewidth=2, label='Linha Perfeita')
 axes[0,1].set_xlabel('Preço Real (R$)')
 axes[0,1].set_ylabel('Preço Previsto (R$)')
-axes[0,1].set_title('🎯 Previsões vs Realidade')
+axes[0,1].set_title('Previsões vs Realidade')
 axes[0,1].legend()
 axes[0,1].grid(True, alpha=0.3)
 
@@ -395,7 +394,7 @@ axes[1,0].hist(erros, bins=15, alpha=0.7, color='orange', edgecolor='black')
 axes[1,0].axvline(0, color='red', linestyle='--', linewidth=2, label='Erro Zero')
 axes[1,0].set_xlabel('Erro (Real - Previsto)')
 axes[1,0].set_ylabel('Frequência')
-axes[1,0].set_title('📊 Distribuição dos Erros')
+axes[1,0].set_title('Distribuição dos Erros')
 axes[1,0].legend()
 axes[1,0].grid(True, alpha=0.3)
 
@@ -404,13 +403,13 @@ axes[1,1].scatter(y_pred, erros, alpha=0.6, color='purple')
 axes[1,1].axhline(0, color='red', linestyle='--', linewidth=2)
 axes[1,1].set_xlabel('Preço Previsto (R$)')
 axes[1,1].set_ylabel('Resíduo (Real - Previsto)')
-axes[1,1].set_title('🔍 Análise de Resíduos')
+axes[1,1].set_title('Análise de Resíduos')
 axes[1,1].grid(True, alpha=0.3)
 
 plt.tight_layout()
 plt.show()
 
-print("📈 INTERPRETAÇÃO DOS GRÁFICOS:")
+print("INTERPRETAÇÃO DOS GRÁFICOS:")
 print("   1. Modelo Treinado: Linha vermelha deve passar pelo meio dos pontos")
 print("   2. Previsões vs Realidade: Pontos próximos da linha diagonal = bom modelo")
 print("   3. Distribuição dos Erros: Deve ser centrada no zero (formato de sino)")
@@ -438,7 +437,7 @@ st.set_page_config(
 )
 
 # Título principal
-st.title("🚗 Sistema Inteligente de Avaliação de Carros Usados")
+st.title("Sistema Inteligente de Avaliação de Carros Usados")
 st.markdown("*Powered by Machine Learning com Scikit-learn*")
 st.divider()
 
@@ -476,7 +475,7 @@ col1, col2, col3 = st.columns([2, 1, 2])
 
 # Coluna 1: Input e Previsão
 with col1:
-    st.header("💰 Calcular Preço do Carro")
+    st.header("Calcular Preço do Carro")
     
     # Input da quilometragem
     quilometragem = st.number_input(
@@ -489,62 +488,62 @@ with col1:
     )
     
     # Botão de calcular
-    if st.button("🔮 Calcular Preço", type="primary", use_container_width=True):
-        preco_previsto = modelo.predict([[quilometragem]])[0]
+    if st.button("Calcular Preço", type="primary", use_container_width=True):
+        preco_previsto = modelo.predict([[quilometragem]])
         
         # Resultado destacado
         st.success(f"## R$ {preco_previsto:,.2f}")
         
         # Análise da quilometragem
         if quilometragem < 30000:
-            st.info("🟢 **Baixa quilometragem** - Carro em ótimo estado!")
+            st.info("**Baixa quilometragem** - Carro em ótimo estado!")
         elif quilometragem < 80000:
-            st.info("🟡 **Quilometragem moderada** - Bom custo-benefício")
+            st.info("**Quilometragem moderada** - Bom custo-benefício")
         elif quilometragem < 150000:
-            st.info("🟠 **Alta quilometragem** - Preço mais acessível")
+            st.info("**Alta quilometragem** - Preço mais acessível")
         else:
-            st.info("🔴 **Quilometragem muito alta** - Avaliar estado geral")
+            st.info("**Quilometragem muito alta** - Avaliar estado geral")
         
         # Comparação com média do mercado
         preco_medio = df['preco'].mean()
         diferenca = ((preco_previsto - preco_medio) / preco_medio) * 100
         
         if diferenca > 10:
-            st.warning(f"💸 Preço {diferenca:.1f}% acima da média do mercado")
+            st.warning(f"Preço {diferenca:.1f}% acima da média do mercado")
         elif diferenca < -10:
-            st.success(f"💰 Preço {abs(diferenca):.1f}% abaixo da média - boa oportunidade!")
+            st.success(f"Preço {abs(diferenca):.1f}% abaixo da média - boa oportunidade!")
         else:
-            st.info("📊 Preço próximo à média do mercado")
+            st.info("Preço próximo à média do mercado")
         
         st.balloons()
 
 # Coluna 2: Métricas do Modelo
 with col2:
-    st.header("📊 Performance")
+    st.header("Performance")
     st.metric("Total de Carros", f"{len(df):,}")
     st.metric("Erro Médio", f"R$ {mae:,.0f}")
     st.metric("Precisão (R²)", f"{r2:.1%}")
     
     st.divider()
     
-    st.header("💡 Sobre o Modelo")
+    st.header("Sobre o Modelo")
     st.markdown(f"""
     **Algoritmo**: Regressão Linear
     
     **Fórmula**:
     ```
     Preço = {modelo.intercept_:.0f} + 
-    ({modelo.coef_[0]:.3f} × km)
+    ({modelo.coef_:.3f} × km)
     ```
     
     **Interpretação**:
-    - Cada 1.000 km reduz R$ {abs(modelo.coef_[0]*1000):.0f}
+    - Cada 1.000 km reduz R$ {abs(modelo.coef_*1000):.0f}
     - Modelo explica {r2:.1%} da variação
     """)
 
 # Coluna 3: Gráficos
 with col3:
-    st.header("📈 Visualização dos Dados")
+    st.header("Visualização dos Dados")
     
     # Gráfico principal
     fig, ax = plt.subplots(figsize=(8, 6))
@@ -560,7 +559,7 @@ with col3:
     
     # Destacar previsão atual
     if quilometragem > 0:
-        preco_atual = modelo.predict([[quilometragem]])[0]
+        preco_atual = modelo.predict([[quilometragem]])
         ax.scatter([quilometragem], [preco_atual], color='gold', s=200, 
                    marker='★', label=f'Sua Previsão', zorder=5, edgecolor='black')
     
@@ -576,11 +575,11 @@ with col3:
     st.pyplot(fig)
 
 # Seção expandível com informações técnicas
-with st.expander("🔧 Detalhes Técnicos do Modelo"):
+with st.expander("Detalhes Técnicos do Modelo"):
     col_a, col_b = st.columns(2)
     
     with col_a:
-        st.subheader("📋 Informações do Dataset")
+        st.subheader("Informações do Dataset")
         st.write(f"• **Total de registros**: {len(df):,}")
         st.write(f"• **Quilometragem média**: {df['quilometragem'].mean():,.0f} km")
         st.write(f"• **Preço médio**: R$ {df['preco'].mean():,.2f}")
@@ -588,24 +587,24 @@ with st.expander("🔧 Detalhes Técnicos do Modelo"):
         st.write(f"• **Faixa de preço**: R$ {df['preco'].min():,.0f} - R$ {df['preco'].max():,.0f}")
     
     with col_b:
-        st.subheader("🎯 Métricas de Avaliação")
+        st.subheader("Métricas de Avaliação")
         st.write(f"• **MAE**: R$ {mae:,.2f}")
         st.write(f"• **R² Score**: {r2:.3f} ({r2*100:.1f}%)")
-        st.write(f"• **Coeficiente**: {modelo.coef_[0]:.6f}")
+        st.write(f"• **Coeficiente**: {modelo.coef_:.6f}")
         st.write(f"• **Intercepto**: R$ {modelo.intercept_:.2f}")
         
         # Interpretação da qualidade
         if r2 > 0.8:
-            st.success("✅ Modelo Excelente")
+            st.success("Modelo Excelente")
         elif r2 > 0.6:
-            st.info("✅ Modelo Bom")
+            st.info("Modelo Bom")
         elif r2 > 0.4:
-            st.warning("⚠️ Modelo Regular")
+            st.warning("Modelo Regular")
         else:
-            st.error("❌ Modelo Inadequado")
+            st.error("Modelo Inadequado")
 
 # Seção de exemplos práticos
-st.header("💡 Exemplos Comparativos")
+st.header("Exemplos Comparativos")
 col_ex1, col_ex2, col_ex3, col_ex4 = st.columns(4)
 
 exemplos = [
@@ -616,10 +615,10 @@ exemplos = [
 ]
 
 for i, (km, categoria) in enumerate(exemplos):
-    preco_ex = modelo.predict([[km]])[0]
+    preco_ex = modelo.predict([[km]])
     with [col_ex1, col_ex2, col_ex3, col_ex4][i]:
         st.metric(
-            label=f"🚗 {categoria}",
+            label=f"{categoria}",
             value=f"R$ {preco_ex:,.0f}",
             delta=f"{km:,} km"
         )
@@ -628,13 +627,13 @@ for i, (km, categoria) in enumerate(exemplos):
 st.divider()
 st.markdown("""
 ---
-**🎓 Projeto Educativo de Machine Learning**  
+**Projeto Educativo de Machine Learning**  
 *Desenvolvido com Python, Scikit-learn e Streamlit*  
 **Objetivo**: Demonstrar conceitos fundamentais de ML de forma prática e interativa
 """)
 ```
 
-Para executar a aplicação:
+Para executar a aplicação :[14]
 
 ```bash
 streamlit run app.py
@@ -642,72 +641,70 @@ streamlit run app.py
 
 ## O Que Aprendemos: Resumo Completo
 
-### 🧠 **Conceitos Fundamentais**
-1. **X e y**: Entrada (features) e saída (target) do modelo
-2. **Treino/Teste**: Metodologia para avaliar modelos de forma confiável
-3. **Correlação**: Força da relação entre variáveis
-4. **Regressão Linear**: Encontrar a melhor linha reta pelos dados
+### **Conceitos Fundamentais**
+1. **X e y**: Entrada (features) e saída (target) do modelo[6][4]
+2. **Treino/Teste**: Metodologia para avaliar modelos de forma confiável[7]
+3. **Correlação**: Força da relação entre variáveis[15]
+4. **Regressão Linear**: Encontrar a melhor linha reta pelos dados[16][10]
 
-### 📊 **Processo de ML**
+### **Processo de ML**
 1. **Análise exploratória** → Entender os dados
 2. **Preparação** → Dividir treino/teste
 3. **Treinamento** → Modelo aprende padrões
 4. **Avaliação** → Medir performance
 5. **Aplicação** → Usar para previsões reais
 
-### 🎯 **Resultados Esperados**
-- **MAE**: Entre R$ 3.000 - R$ 8.000 (erro aceitável)
+### **Resultados Esperados**
+- **MAE**: Entre R$ 3.000 - R$ 8.000 (erro aceitável)[8]
 - **R²**: Entre 0.6 - 0.8 (boa explicação da variação)
 - **Aplicação prática**: Sistema funcional para avaliação de carros
 
-### ⚠️ **Limitações do Modelo**
+### **Limitações do Modelo**
 - Considera apenas quilometragem
 - Ignora: marca, ano, estado de conservação, cor, etc.
 - Modelo simples para fins educativos
 
 ## Exercícios Propostos
 
-### 🥉 **Iniciante**
+### **Iniciante**
 1. Teste o modelo com diferentes valores de quilometragem
 2. Analise os gráficos e interprete os resultados
 3. Modifique o test_size para 30% e compare os resultados
 
-### 🥈 **Intermediário**
-1. Adicione mais features: ano do carro, tipo de combustível
-2. Compare Linear Regression com outros algoritmos
+### **Intermediário**
+1. Adicione mais features: ano do carro, tipo de combustível[8]
+2. Compare Linear Regression com outros algoritmos[4]
 3. Crie validação cruzada para melhor avaliação
 
-### 🥇 **Avançado**
-1. Implemente feature engineering (ex: idade do carro)
-2. Adicione regularização (Ridge, Lasso)
+### **Avançado**
+1. Implemente feature engineering (ex: idade do carro)[11]
+2. Adicione regularização (Ridge, Lasso)[17]
 3. Crie pipeline completo com pré-processamento
 
 ## Próximos Passos no Aprendizado
 
-1. **Regressão Múltipla** - Usar várias características simultaneamente
-2. **Classificação** - Prever categorias (ex: marca do carro)
+1. **Regressão Múltipla** - Usar várias características simultaneamente[6]
+2. **Classificação** - Prever categorias (ex: marca do carro)[4]
 3. **Árvores de Decisão** - Algoritmos não-lineares
-4. **Ensemble Methods** - Combinar múltiplos modelos
+4. **Ensemble Methods** - Combinar múltiplos modelos[8]
 5. **Deep Learning** - Redes neurais para problemas complexos
 
 ## Recursos para Continuar Estudando
 
-- **Documentação Scikit-learn**: https://scikit-learn.org/
-- **Streamlit**: https://docs.streamlit.io/
-- **Datasets Kaggle**: https://kaggle.com/datasets
-- **Curso gratuito**: https://www.coursera.org/learn/machine-learning
+- **Documentação Scikit-learn**: [https://scikit-learn.org/](https://scikit-learn.org/)[1]
+- **Streamlit**: [https://docs.streamlit.io/](https://docs.streamlit.io/)[12]
+- **Datasets Kaggle**: [https://kaggle.com/datasets](https://kaggle.com/datasets)[18]
+- **Curso gratuito**: [https://www.coursera.org/learn/machine-learning](https://www.coursera.org/learn/machine-learning)
 
----
+## Conclusão
 
-## 🎉 Conclusão
+Parabéns! Você acabou de criar seu primeiro projeto completo de Machine Learning. Com apenas algumas linhas de código, construímos:[3][2]
 
-Parabéns! Você acabou de criar seu primeiro projeto completo de Machine Learning. Com apenas algumas linhas de código, construímos:
+**Um modelo preditivo funcional**  
+**Uma aplicação web interativa**  
+**Análises visuais dos dados**  
+**Métricas de avaliação confiáveis**
 
-✅ **Um modelo preditivo funcional**  
-✅ **Uma aplicação web interativa**  
-✅ **Análises visuais dos dados**  
-✅ **Métricas de avaliação confiáveis**
+O mais importante: você entendeu **como** e **por que** cada etapa funciona. Isso é a base sólida para projetos mais complexos no futuro![19]
 
-O mais importante: você entendeu **como** e **por que** cada etapa funciona. Isso é a base sólida para projetos mais complexos no futuro!
-
-**Machine Learning não é mágica - é metodologia aplicada aos dados! 🚀**
+**Machine Learning não é mágica - é metodologia aplicada aos dados!**[20][4]
